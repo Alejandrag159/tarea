@@ -1,0 +1,18 @@
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: trabajo_clase1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+      MYSQL_DATABASE: "EditorialRevistas"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+    ports:
+      - "3307:3305"
+    volumes:
+      - "C:/Users/aleja/TrabajosvistosenclaseAruitectura/mysql_data:/var/lib/mysql"
+      - ./EditorialRevistas.sql:/docker-entrypoint-initdb.d/EditorialRevistas.sql
+volumes:
+  mysql_data:
